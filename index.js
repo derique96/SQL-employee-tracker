@@ -1,6 +1,7 @@
 const inquirer = require('inquirer');
-const fs = require('fs');
-const { default: Choice } = require('inquirer/lib/objects/choice');
+const mysql = require('mysql2');
+
+
 
 
 
@@ -13,4 +14,15 @@ inquirer
             message: "Welcome! Please choose an action",
             choices: ["View All Departments", "View All Roles", "View All Employees", "Add a Deparment",  "Add a Role", "Add an Employee", "Update Employee Role"]
         }
-    ])
+    ]);
+;
+
+const db = mysql.createconnection (
+    {
+       host: 'localhost',
+       user: 'root',
+       password: 'root',
+       database: 'human_resources_db',
+    },
+    console.log(`Connected to the database human_resources_db`)
+);
